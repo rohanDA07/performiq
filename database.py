@@ -418,3 +418,48 @@ def get_predictions(employee_id=None):
 # ==========================================
 
 init_db()
+
+# ==========================================
+# DASHBOARD ANALYTICS
+# ==========================================
+
+def get_dept_stats():
+
+    conn = get_conn()
+
+    rows = conn.execute("""
+
+    SELECT
+        department,
+        COUNT(*) as total
+
+    FROM employees
+
+    GROUP BY department
+
+    ORDER BY total DESC
+
+    """).fetchall()
+
+    conn.close()
+
+    return [dict(r) for r in rows]
+
+
+def get_predictions():
+
+    conn = get_conn()
+
+    rows = conn.execute("""
+
+    SELECT *
+
+    FROM performance_records
+
+    ORDER BY predicted_at DESC
+
+    """).fetchall()
+
+    conn.close()
+
+    return [dict(r) for r in rows]
