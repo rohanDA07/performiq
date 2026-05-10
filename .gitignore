@@ -1,0 +1,5 @@
+venv/
+__pycache__/
+*.pyc
+performiq.db
+.ipynb_checkpoints/
