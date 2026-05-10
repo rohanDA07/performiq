@@ -2,7 +2,7 @@ import joblib
 import pandas as pd
 import os
 
-MODEL_PATH = "model/employee_model.pkl"
+MODEL_PATH = "Model/employee_model.pkl"
 
 _model = None
 
